@@ -1,4 +1,4 @@
-package com.example.youshallnotpass.Game
+package com.example.youshallnotpass.ui.Game
 
 import android.os.Bundle
 import android.widget.Button
