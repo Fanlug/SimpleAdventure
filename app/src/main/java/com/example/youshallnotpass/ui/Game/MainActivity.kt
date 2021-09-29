@@ -1,18 +1,19 @@
-package com.example.youshallnotpass.ui
+package com.example.youshallnotpass.ui.Game
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.youshallnotpass.R
-import com.example.youshallnotpass.ui.Game.GAme
+import com.example.youshallnotpass.databinding.ActivityMainBinding
 
 open class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        peepeepoopoo.setOnClickListener {
+        binding.peepeepoopoo.setOnClickListener {
             val gameIntent = Intent(this, GAme::class.java)
             startActivity(gameIntent)
         }
@@ -20,5 +21,5 @@ open class MainActivity : AppCompatActivity() {
 
     }
 
-    val peepeepoopoo = Button(findViewById(R.id.peepeepoopoo))
+
 }

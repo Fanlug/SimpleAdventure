@@ -1,10 +1,8 @@
 package com.example.youshallnotpass.ui.Game
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.youshallnotpass.R
+import com.example.youshallnotpass.databinding.GameBinding
 
 class GAme : AppCompatActivity() {
 
@@ -15,63 +13,57 @@ class GAme : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
+        val gameBinding = GameBinding.inflate(layoutInflater)
         val path = mutableListOf<Directions>(Directions.START)
-        val scroll = TextView(findViewById(R.id.Scroll))
-        val South = Button(findViewById(R.id.south))
-        val North = Button(findViewById(R.id.north))
-        val West = Button(findViewById(R.id.west))
-        val East = Button(findViewById(R.id.east))
-        val End = Button(findViewById(R.id.end))
-        val Start = Button(findViewById(R.id.start))
 
-        setContentView(R.layout.game)
+        setContentView(gameBinding.root)
+
         val start = {
             path.add(Directions.START)
-            scroll.text = "Play\n"
+            gameBinding.Scroll.text = "Play\n"
 
         }
         val north = {
             path.add(Directions.NORTH)
-            scroll.text = scroll.text.toString() + "\nnorth"
+            gameBinding.Scroll.text = gameBinding.Scroll.text.toString() + "\nnorth"
         }
         val south = {
             path.add(Directions.SOUTH)
-            scroll.text = scroll.text.toString() + "\nsouth"
+            gameBinding.Scroll.text = gameBinding.Scroll.text.toString() + "\nsouth"
         }
 
         val west = {
             path.add(Directions.WEST)
-            scroll.text = scroll.text.toString() + "\nwest"
+            gameBinding.Scroll.text = gameBinding.Scroll.text.toString() + "\nwest"
         }
 
         val east = {
             path.add(Directions.EAST)
-            scroll.text = scroll.text.toString() + "\neast"
+            gameBinding.Scroll.text = gameBinding.Scroll.text.toString() + "\neast"
         }
         val end = {
             path.add(Directions.END)
-            scroll.text = scroll.text.toString() + "Game Over \n Path\n" + path
+            gameBinding.Scroll.text =
+                gameBinding.Scroll.text.toString() + "Game Over \n Path\n" + path
             path.clear()
 
         }
-        North.setOnClickListener {
+        gameBinding.north.setOnClickListener {
             north
         }
-        East.setOnClickListener {
+        gameBinding.east.setOnClickListener {
             east
         }
-        West.setOnClickListener {
+        gameBinding.west.setOnClickListener {
             west
         }
-        South.setOnClickListener {
+        gameBinding.south.setOnClickListener {
             south
         }
-        End.setOnClickListener {
+        gameBinding.end.setOnClickListener {
             end
         }
-        Start.setOnClickListener {
+        gameBinding.start.setOnClickListener {
             start
         }
 
